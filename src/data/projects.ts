@@ -14,7 +14,7 @@ export type Project = {
   note?: string
   stack: string
   demo?: string
-  code: string
+  code?: string
   media?: Media
   metric?: { value: string; label: string }
 }
@@ -48,7 +48,6 @@ export const projects: Project[] = [
     task: 'Владелец тонет в рутине и не знает, что автоматизировать первым. Типовые советы не учитывают его нишу и размер команды.',
     solution: 'Семь вопросов в Telegram или MAX, и модель собирает персональную карту автоматизаций. Лид с ответами сразу уходит менеджеру, есть выгрузка в Excel и CRM.',
     stack: 'Python · aiogram 3 · MAX Bot API · OpenRouter · SQLite · Docker',
-    code: 'https://github.com/automatorr192-dev/quiz-automation-bot',
     metric: { value: '2 минуты', label: 'от первого вопроса до готовой карты' },
   },
   {

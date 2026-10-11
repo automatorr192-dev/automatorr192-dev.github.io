@@ -35,7 +35,7 @@ export function Works() {
         <h2 id="works-title" className="section__title">Работы</h2>
         <p className="section__count">0{projects.length} проектов</p>
         <p className="section__intro">
-          У каждого проекта открытый код, у пяти живое демо. Боты и CRM работают на сервере, ссылки на них появятся после деплоя.
+          У пяти проектов живое демо, у семи открытый код. Боты и CRM работают на сервере, ссылки на них появятся после деплоя.
         </p>
       </div>
 
@@ -67,7 +67,7 @@ export function Works() {
               <Media project={p} />
               <p className="work__links">
                 {p.demo && <a className="btn btn--light" href={p.demo}>Открыть демо</a>}
-                <a className="btn" href={p.code}>Код на GitHub</a>
+                {p.code && <a className="btn" href={p.code}>Код на GitHub</a>}
               </p>
             </div>
           </li>
