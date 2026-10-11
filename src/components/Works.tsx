@@ -1,0 +1,78 @@
+import { projects, type Project } from '../data/projects'
+import './sections.css'
+
+function Media({ project }: { project: Project }) {
+  const { media, metric } = project
+  if (media) {
+    const srcset = media.widths.map(w => `./${media.src}-${w}.webp ${w}w`).join(', ')
+    return (
+      <figure className={`work__frame${media.portrait ? ' work__frame--portrait' : ''}`}>
+        <img
+          src={`./${media.src}-${media.widths[media.widths.length - 1]}.webp`}
+          srcSet={srcset}
+          sizes={media.portrait ? '(max-width: 900px) 46vw, 220px' : '(max-width: 900px) 100vw, 38vw'}
+          width={media.w}
+          height={media.h}
+          alt={media.alt}
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    )
+  }
+  return (
+    <div className="work__frame work__frame--metric">
+      <p className="work__metric">{metric!.value}</p>
+      <p className="work__metric-label">{metric!.label}</p>
+    </div>
+  )
+}
+
+export function Works() {
+  return (
+    <section id="works" className="section" aria-labelledby="works-title">
+      <div className="section__head" data-reveal>
+        <h2 id="works-title" className="section__title">Работы</h2>
+        <p className="section__count">0{projects.length} проектов</p>
+        <p className="section__intro">
+          У каждого проекта открытый код, у пяти живое демо. Боты и CRM работают на сервере, ссылки на них появятся после деплоя.
+        </p>
+      </div>
+
+      <ol className="works">
+        {projects.map((p, i) => (
+          <li className="work" key={p.id} data-reveal>
+            <div className="work__id">
+              <span className="work__num">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="work__name">{p.name}</h3>
+              <p className="work__kind">{p.kind}</p>
+              <p className={`work__status${p.demo ? ' is-live' : ''}`}>{p.demo ? 'Живое демо' : 'Демо скоро'}</p>
+            </div>
+            <div className="work__text">
+              <dl>
+                <dt>Задача</dt>
+                <dd>{p.task}</dd>
+                <dt>Решение</dt>
+                <dd>{p.solution}</dd>
+                {p.note && (
+                  <>
+                    <dt>Важно</dt>
+                    <dd>{p.note}</dd>
+                  </>
+                )}
+              </dl>
+              <p className="work__stack">{p.stack}</p>
+            </div>
+            <div className="work__side">
+              <Media project={p} />
+              <p className="work__links">
+                {p.demo && <a className="btn btn--light" href={p.demo}>Открыть демо</a>}
+                <a className="btn" href={p.code}>Код на GitHub</a>
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+  )
+}
