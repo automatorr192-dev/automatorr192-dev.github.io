@@ -74,9 +74,8 @@
 .work__text { padding-right: 40px; }
 .work__text dl { margin: 0; }
 .work__text dt {
-  font-size: 13px;
-  letter-spacing: .06em;
-  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--ink-3);
 }
 .work__text dd { margin: 6px 0 22px; color: var(--ink-2); }
@@ -148,10 +147,8 @@
 .about__cols p { margin: 0; color: var(--ink-2); max-width: 30em; }
 .about__label {
   margin: 0 0 10px;
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: .06em;
-  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--ink-3);
 }
 

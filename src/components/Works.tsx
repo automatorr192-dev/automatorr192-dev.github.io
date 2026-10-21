@@ -35,7 +35,7 @@ export function Works() {
         {projects.map((p, i) => (
           <li className="work" key={p.id} data-reveal>
             <div className="work__id">
-              <span className="work__num">{String(i + 1).padStart(2, '0')}</span>
+              <span className="work__num">{i + 1}</span>
               <h3 className="work__name">{p.name}</h3>
               <p className="work__kind">{p.kind}</p>
               <p className={`work__status${p.demo || p.bot ? ' is-live' : ''}`}>{p.demo || p.bot ? 'Живое демо' : 'Демо скоро'}</p>
