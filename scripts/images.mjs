@@ -1,19 +1,13 @@
 import sharp from 'sharp'
 
-const jobs = [
-  ['design/shots/ai-crm-src.png', 'ai-crm', [480, 800, 1200], { left: 0, top: 0, width: 1440, height: 900 }],
-  ['design/shots/rovno.png', 'rovno', [480, 800, 1200], { left: 0, top: 0, width: 1424, height: 890 }],
-  ['design/shots/pech.png', 'pech', [480, 800, 1200], { left: 0, top: 0, width: 1424, height: 890 }],
-  ['design/shots/capy.png', 'capy', [480, 800, 1200], { left: 0, top: 0, width: 1424, height: 890 }],
-  ['design/shots/nebula.png', 'nebula', [360, 720]],
-  ['design/shots/glyanets.png', 'glyanets', [360, 720]],
-]
+// Обложки собраны в одном виде (design/shots/covers, 1200×750 @2x): фон и рамки в цветах сайта,
+// сайты — в окне браузера, мини-аппы и боты — два телефона.
+const covers = ['ai-crm', 'document-helper', 'quiz-bot', 'nebula', 'glyanets', 'rovno', 'pech', 'capy']
+const jobs = covers.map(id => [`design/shots/covers/${id}.png`, id, [480, 800, 1200]])
 
-for (const [src, id, widths, crop] of jobs) {
+for (const [src, id, widths] of jobs) {
   for (const w of widths) {
-    let img = sharp(src)
-    if (crop) img = img.extract(crop)
-    await img.resize({ width: w }).webp({ quality: 74 }).toFile(`public/works/${id}-${w}.webp`)
+    await sharp(src).resize({ width: w }).webp({ quality: 74 }).toFile(`public/works/${id}-${w}.webp`)
   }
 }
 

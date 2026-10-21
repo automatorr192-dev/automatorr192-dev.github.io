@@ -2,29 +2,21 @@ import { projects, type Project } from '../data/projects'
 import './sections.css'
 
 function Media({ project }: { project: Project }) {
-  const { media, metric } = project
-  if (media) {
-    const srcset = media.widths.map(w => `./${media.src}-${w}.webp ${w}w`).join(', ')
-    return (
-      <figure className={`work__frame${media.portrait ? ' work__frame--portrait' : ''}`}>
-        <img
-          src={`./${media.src}-${media.widths[media.widths.length - 1]}.webp`}
-          srcSet={srcset}
-          sizes={media.portrait ? '(max-width: 900px) 46vw, 220px' : '(max-width: 900px) 100vw, 38vw'}
-          width={media.w}
-          height={media.h}
-          alt={media.alt}
-          loading="lazy"
-          decoding="async"
-        />
-      </figure>
-    )
-  }
+  const { media } = project
+  const srcset = media.widths.map(w => `./${media.src}-${w}.webp ${w}w`).join(', ')
   return (
-    <div className="work__frame work__frame--metric">
-      <p className="work__metric">{metric!.value}</p>
-      <p className="work__metric-label">{metric!.label}</p>
-    </div>
+    <figure className="work__frame">
+      <img
+        src={`./${media.src}-${media.widths[media.widths.length - 1]}.webp`}
+        srcSet={srcset}
+        sizes="(max-width: 900px) 100vw, 38vw"
+        width={media.w}
+        height={media.h}
+        alt={media.alt}
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
   )
 }
 

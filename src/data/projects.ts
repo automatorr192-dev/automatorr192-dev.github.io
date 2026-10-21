@@ -3,7 +3,7 @@ export const TELEGRAM_LABEL = 't.me/aiarchitectorrr'
 export const INSTAGRAM = 'https://www.instagram.com/automatorrr/'
 export const GITHUB = 'https://github.com/automatorr192-dev'
 
-type Media = { src: string; widths: number[]; w: number; h: number; portrait?: boolean; alt: string }
+type Media = { src: string; widths: number[]; w: number; h: number; alt: string }
 
 export type Project = {
   id: string
@@ -15,8 +15,7 @@ export type Project = {
   stack: string
   demo?: string
   bot?: string
-  media?: Media
-  metric?: { value: string; label: string }
+  media: Media
 }
 
 export const projects: Project[] = [
@@ -26,10 +25,10 @@ export const projects: Project[] = [
     kind: 'CRM с ИИ-разметкой заявок',
     task: 'Заявки рассыпаны по директу, почте и форме на сайте. Пока до них дойдут руками, клиент уходит к тому, кто ответил первым.',
     solution: 'Все заявки попадают в одну воронку. Модель подписывает тему, срочность и черновик ответа, уведомление приходит в Telegram и MAX. Роли, напоминания и журнал действий.',
-    note: 'Требования собраны из 36 реальных ТЗ на CRM с бирж. 159 тестов.',
+    note: 'Требования собраны из 36 реальных ТЗ на CRM с бирж. 214 тестов, в CI — на sqlite и Postgres.',
     stack: 'Python · FastAPI · SQLAlchemy · Postgres · OpenRouter · aiogram · Docker',
     demo: 'https://automatorr192-dev.github.io/ai-crm/demo/',
-    media: { src: 'works/ai-crm', widths: [480, 800, 1200], w: 1200, h: 750, alt: 'Доска сделок AI-CRM: колонки стадий с карточками заявок' },
+    media: { src: 'works/ai-crm', widths: [480, 800, 1200], w: 1200, h: 750, alt: 'Доска сделок AI-CRM: стадии, суммы и шанс сделки на каждой карточке' },
   },
   {
     id: 'document-helper',
@@ -39,7 +38,7 @@ export const projects: Project[] = [
     solution: 'Бросаешь PDF или Word в мини-апп. Опасные пункты подсвечиваются в тексте, рядом перевод на человеческий и безопасная редакция, на выходе протокол разногласий в Word.',
     stack: 'Python · aiogram · Pydantic · pdfplumber · OpenRouter · Docker',
     bot: 'https://t.me/dockpchekerbot',
-    metric: { value: '1 минута', label: 'и около 8 ₽ на первый проход по договору' },
+    media: { src: 'works/document-helper', widths: [480, 800, 1200], w: 1200, h: 750, alt: 'Мини-апп Документ-хелпера: загрузка договора и разбор с вердиктом и подсветкой опасного пункта' },
   },
   {
     id: 'quiz-bot',
@@ -49,7 +48,7 @@ export const projects: Project[] = [
     solution: 'Семь вопросов в Telegram или MAX, и модель собирает персональную карту автоматизаций. Лид с ответами сразу уходит менеджеру, есть выгрузка в Excel и CRM.',
     stack: 'Python · aiogram 3 · MAX Bot API · OpenRouter · SQLite · Docker',
     bot: 'https://t.me/automationquizbot',
-    metric: { value: '2 минуты', label: 'от первого вопроса до готовой карты' },
+    media: { src: 'works/quiz-bot', widths: [480, 800, 1200], w: 1200, h: 750, alt: 'Диалог с квиз-ботом: вопросы с кнопками и начало карты автоматизаций' },
   },
   {
     id: 'nebula',
@@ -60,18 +59,18 @@ export const projects: Project[] = [
     note: 'Оплата пока имитируется, Telegram Stars — следующий этап.',
     stack: 'Python · aiogram 3 · FastAPI · Telegram Mini Apps · Docker',
     demo: 'https://automatorr192-dev.github.io/nebula-shop/',
-    media: { src: 'works/nebula', widths: [360, 720], w: 720, h: 1558, portrait: true, alt: 'Каталог Nebula в мини-аппе Telegram' },
+    media: { src: 'works/nebula', widths: [480, 800, 1200], w: 1200, h: 750, alt: 'Мини-апп Nebula: главная со стопкой карт и экран товара' },
   },
   {
     id: 'glyanets',
     name: 'Глянец',
     kind: 'Запись на детейлинг',
     task: 'Запись по телефону и в переписке съедает время администратора, а клиент не видит цену и свободное время.',
-    solution: 'Мини-апп: услуга и класс машины, сразу цена, свободные слоты на две недели и запись в пару касаний. Клиент видит, на каком этапе работа над машиной.',
-    note: 'Демо: записи хранятся в браузере.',
-    stack: 'Vite · React 19 · TypeScript · Telegram Mini Apps',
+    solution: 'Мини-апп: услуга и класс машины, сразу цена, свободные слоты на две недели и запись в пару касаний. За два часа бот напоминает о визите, вопросы о ценах и времени закрывает ИИ-администратор в Telegram и MAX.',
+    note: 'Демо на странице работает без сервера: записи хранятся в браузере. Сервер записи с боксами на Postgres и боты готовы, живая версия — после деплоя.',
+    stack: 'Vite · React 19 · TypeScript · FastAPI · Postgres · aiogram · MAX Bot API · OpenRouter',
     demo: 'https://automatorr192-dev.github.io/glyanets/',
-    media: { src: 'works/glyanets', widths: [360, 720], w: 720, h: 1558, portrait: true, alt: 'Главный экран Глянца: машина в работе и список услуг' },
+    media: { src: 'works/glyanets', widths: [480, 800, 1200], w: 1200, h: 750, alt: 'Мини-апп Глянца: главная с машиной в работе и выбор времени записи' },
   },
   {
     id: 'rovno',
