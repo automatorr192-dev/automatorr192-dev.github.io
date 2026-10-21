@@ -68,7 +68,7 @@
   shape-rendering: geometricPrecision;
 }
 
-.hero .small, .actions { font-weight: 500; }
+.hero .small { font-weight: 500; }
 .tagline, .contact { line-height: 1.12; }
 
 .tagline {
@@ -85,32 +85,19 @@
   font-style: normal;
 }
 
-.actions {
+.nav {
   position: absolute;
   right: calc(32 * var(--u));
-  top: calc(13 * var(--u));
+  top: calc(12.5 * var(--u));
   display: flex;
-  align-items: center;
-  gap: 1.22em;
-  font-size: var(--small);
+  gap: 1.6em;
+  line-height: 1.12;
 }
-
-.menu {
-  width: 6.349em;
-  height: 1.508em;
-  background: var(--menu-bg);
-  color: var(--menu-ink);
-  text-align: left;
-  padding-left: .33em;
-  line-height: 1.508em;
-  letter-spacing: -0.02em;
-}
-.menu span { display: block; translate: 0 0; }
 @media (hover: hover) {
-  .menu:hover { background: #fff; }
+  .nav a:hover { color: var(--ink-3); }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .menu { transition: background-color .15s; }
+  .nav a { transition: color .15s; }
 }
 
 .services {
@@ -209,7 +196,8 @@
 }
 
 .is-entering .tagline span,
-.is-entering .contact a {
+.is-entering .contact a,
+.is-entering .nav a {
   --rise: .55em;
   animation: au-soft .75s var(--e-quint) both;
   animation-play-state: var(--au-state);
@@ -219,11 +207,9 @@
 .is-entering .tagline span:nth-child(3) { animation-delay: .88s; }
 .is-entering .contact a:nth-child(1) { animation-delay: .88s; }
 .is-entering .contact a:nth-child(2) { animation-delay: .93s; }
-
-.is-entering .menu {
-  animation: au-wipe .6s cubic-bezier(.25, 1, .5, 1) 1.02s both;
-  animation-play-state: var(--au-state);
-}
+.is-entering .nav a:nth-child(1) { animation-delay: .93s; }
+.is-entering .nav a:nth-child(2) { animation-delay: .98s; }
+.is-entering .nav a:nth-child(3) { animation-delay: 1.03s; }
 
 /* portrait: tablets and phones */
 @media (max-aspect-ratio: 114/100) {
@@ -232,9 +218,9 @@
     --m: clamp(16px, 3.2vw, 32px);
     --bar-top: calc(var(--m) * .64);
   }
-  .logo, .tagline, .contact, .actions { top: var(--bar-top); }
+  .logo, .tagline, .contact, .nav { top: var(--bar-top); }
   .logo { left: var(--m); }
-  .actions { right: var(--m); }
+  .nav { right: var(--m); }
   .hero__photo {
     --pw: calc(var(--vh) * 138.6);
     --photo-top: calc(var(--vh) * 15);
@@ -252,14 +238,14 @@
   }
 }
 
-@media (max-aspect-ratio: 114/100) and (max-width: 679px) {
+@media (max-aspect-ratio: 114/100) and (max-width: 959px) {
   .contact a { justify-content: flex-end; }
   :root {
     --small-min: 12.5px;
     --bar-top: calc(var(--m) * .64 + env(safe-area-inset-top));
   }
   .logo { width: 104px; }
-  .actions { gap: 14px; }
+  .nav { gap: 1.2em; }
   .tagline { left: var(--m); top: calc(70px + env(safe-area-inset-top)); }
   .contact { left: auto; right: var(--m); top: calc(70px + env(safe-area-inset-top)); text-align: right; }
 }
@@ -272,11 +258,11 @@
     --mR: max(16px, env(safe-area-inset-right));
     --bar-top: calc(16px * .64);
   }
-  .logo, .tagline, .contact, .actions { top: var(--bar-top); }
+  .logo, .tagline, .contact, .nav { top: var(--bar-top); }
   .logo { left: var(--mL); }
   .tagline { left: calc(var(--mL) + 96px + 2em); }
-  .contact { left: auto; right: calc(var(--mR) + 6.35em + 2em); }
-  .actions { right: var(--mR); }
+  .contact { left: auto; right: calc(var(--mR) + 18em); }
+  .nav { right: var(--mR); }
   .services .s1 { left: var(--mL); }
   .services .s2 { left: calc(var(--mL) + (100% - var(--mL) - var(--mR)) / 2); }
   .services .s3 { right: var(--mR); }
@@ -286,21 +272,21 @@
     bottom: max(.4334em, 8px + env(safe-area-inset-bottom));
   }
 }
-@media (max-height: 479px) and (min-aspect-ratio: 1141/1000) and (max-width: 559px) {
+@media (max-height: 479px) and (min-aspect-ratio: 1141/1000) and (max-width: 639px) {
   .contact { right: var(--mR); top: calc(var(--bar-top) + 2.6em); text-align: right; }
 }
 
 /* bigger hit areas on touch, drawn shapes stay the same */
 @media (pointer: coarse) {
-  .menu { position: relative; }
+  .nav a { position: relative; }
   .contact a { display: flex; align-items: center; min-height: 24px; }
-  .menu::after, .logo::after {
+  .nav a::after, .logo::after {
     content: "";
     position: absolute;
     top: 50%;
     translate: 0 -50%;
     height: max(100%, 44px);
   }
-  .menu::after { left: -10px; right: -10px; }
+  .nav a::after { left: -.8em; right: -.8em; }
   .logo::after { left: -10px; right: -10px; }
 }

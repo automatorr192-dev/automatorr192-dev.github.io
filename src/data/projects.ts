@@ -14,7 +14,7 @@ export type Project = {
   note?: string
   stack: string
   demo?: string
-  code?: string
+  bot?: string
   media?: Media
   metric?: { value: string; label: string }
 }
@@ -28,7 +28,7 @@ export const projects: Project[] = [
     solution: 'Все заявки попадают в одну воронку. Модель подписывает тему, срочность и черновик ответа, уведомление приходит в Telegram и MAX. Роли, напоминания и журнал действий.',
     note: 'Требования собраны из 36 реальных ТЗ на CRM с бирж. 159 тестов.',
     stack: 'Python · FastAPI · SQLAlchemy · Postgres · OpenRouter · aiogram · Docker',
-    code: 'https://github.com/automatorr192-dev/ai-crm',
+    demo: 'https://automatorr192-dev.github.io/ai-crm/demo/',
     media: { src: 'works/ai-crm', widths: [480, 800, 1200], w: 1200, h: 750, alt: 'Доска сделок AI-CRM: колонки стадий с карточками заявок' },
   },
   {
@@ -38,7 +38,7 @@ export const projects: Project[] = [
     task: 'Договор подписывают все, а читают до конца единицы. Плохой пункт замечают, когда деньги уже сгорели. Юрист берёт от 3 000 ₽ и отвечает за день-два.',
     solution: 'Бросаешь PDF или Word в мини-апп. Опасные пункты подсвечиваются в тексте, рядом перевод на человеческий и безопасная редакция, на выходе протокол разногласий в Word.',
     stack: 'Python · aiogram · Pydantic · pdfplumber · OpenRouter · Docker',
-    code: 'https://github.com/automatorr192-dev/document-helper',
+    bot: 'https://t.me/dockpchekerbot',
     metric: { value: '1 минута', label: 'и около 8 ₽ на первый проход по договору' },
   },
   {
@@ -48,6 +48,7 @@ export const projects: Project[] = [
     task: 'Владелец тонет в рутине и не знает, что автоматизировать первым. Типовые советы не учитывают его нишу и размер команды.',
     solution: 'Семь вопросов в Telegram или MAX, и модель собирает персональную карту автоматизаций. Лид с ответами сразу уходит менеджеру, есть выгрузка в Excel и CRM.',
     stack: 'Python · aiogram 3 · MAX Bot API · OpenRouter · SQLite · Docker',
+    bot: 'https://t.me/automationquizbot',
     metric: { value: '2 минуты', label: 'от первого вопроса до готовой карты' },
   },
   {
@@ -59,7 +60,6 @@ export const projects: Project[] = [
     note: 'Оплата пока имитируется, Telegram Stars — следующий этап.',
     stack: 'Python · aiogram 3 · FastAPI · Telegram Mini Apps · Docker',
     demo: 'https://automatorr192-dev.github.io/nebula-shop/',
-    code: 'https://github.com/automatorr192-dev/nebula-shop',
     media: { src: 'works/nebula', widths: [360, 720], w: 720, h: 1558, portrait: true, alt: 'Каталог Nebula в мини-аппе Telegram' },
   },
   {
@@ -71,7 +71,6 @@ export const projects: Project[] = [
     note: 'Демо: записи хранятся в браузере.',
     stack: 'Vite · React 19 · TypeScript · Telegram Mini Apps',
     demo: 'https://automatorr192-dev.github.io/glyanets/',
-    code: 'https://github.com/automatorr192-dev/glyanets',
     media: { src: 'works/glyanets', widths: [360, 720], w: 720, h: 1558, portrait: true, alt: 'Главный экран Глянца: машина в работе и список услуг' },
   },
   {
@@ -83,7 +82,6 @@ export const projects: Project[] = [
     note: 'Компания вымышленная.',
     stack: 'HTML · CSS · JavaScript · Three.js',
     demo: 'https://automatorr192-dev.github.io/rovno/',
-    code: 'https://github.com/automatorr192-dev/rovno',
     media: { src: 'works/rovno', widths: [480, 800, 1200], w: 1200, h: 750, alt: 'Первый экран лендинга Ровно' },
   },
   {
@@ -95,7 +93,6 @@ export const projects: Project[] = [
     note: 'Сеть вымышленная.',
     stack: 'HTML · CSS · JavaScript',
     demo: 'https://automatorr192-dev.github.io/pech/',
-    code: 'https://github.com/automatorr192-dev/pech',
     media: { src: 'works/pech', widths: [480, 800, 1200], w: 1200, h: 750, alt: 'Первый экран сайта Печь' },
   },
   {
@@ -107,7 +104,6 @@ export const projects: Project[] = [
     note: 'Монета вымышленная.',
     stack: 'HTML · CSS · JavaScript',
     demo: 'https://automatorr192-dev.github.io/capy/',
-    code: 'https://github.com/automatorr192-dev/capy',
     media: { src: 'works/capy', widths: [480, 800, 1200], w: 1200, h: 750, alt: 'Первый экран лендинга $CAPY с капибарой' },
   },
 ]

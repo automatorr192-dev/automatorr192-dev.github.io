@@ -1,11 +1,16 @@
 import { useEffect, useRef } from 'react'
 import { INSTAGRAM, TELEGRAM, TELEGRAM_LABEL } from '../data/projects'
-import { Menu } from './Menu'
 import { Logo } from './Logo'
 import { playEntrance } from './entrance'
 import './hero.css'
 
 const lines = ['САЙТЫ', 'ПРИЛОЖЕНИЯ', 'ИИ-АГЕНТЫ']
+
+const links = [
+  ['#works', 'Работы'],
+  ['#about', 'Обо мне'],
+  ['#contact', 'Связаться'],
+]
 
 export function Hero() {
   const video = useRef<HTMLVideoElement>(null)
@@ -40,9 +45,9 @@ export function Hero() {
         <a href={INSTAGRAM}>Instagram @automatorrr</a>
       </address>
 
-      <div className="actions">
-        <Menu />
-      </div>
+      <nav className="nav small" aria-label="Разделы">
+        {links.map(([href, label]) => <a key={href} href={href}>{label}</a>)}
+      </nav>
 
       <ul className="services small" aria-label="Услуги">
         <li className="s1"><span className="rv">ИИ-автоматизация</span></li>

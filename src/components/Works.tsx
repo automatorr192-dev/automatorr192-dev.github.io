@@ -33,9 +33,9 @@ export function Works() {
     <section id="works" className="section" aria-labelledby="works-title">
       <div className="section__head" data-reveal>
         <h2 id="works-title" className="section__title">Работы</h2>
-        <p className="section__count">0{projects.length} проектов</p>
+        <p className="section__count">{projects.length} проектов</p>
         <p className="section__intro">
-          У пяти проектов живое демо, у семи открытый код. Боты и CRM работают на сервере, ссылки на них появятся после деплоя.
+          Каждый проект можно открыть: сайты и мини-аппы по ссылке, боты в Telegram.
         </p>
       </div>
 
@@ -46,7 +46,7 @@ export function Works() {
               <span className="work__num">{String(i + 1).padStart(2, '0')}</span>
               <h3 className="work__name">{p.name}</h3>
               <p className="work__kind">{p.kind}</p>
-              <p className={`work__status${p.demo ? ' is-live' : ''}`}>{p.demo ? 'Живое демо' : 'Демо скоро'}</p>
+              <p className={`work__status${p.demo || p.bot ? ' is-live' : ''}`}>{p.demo || p.bot ? 'Живое демо' : 'Демо скоро'}</p>
             </div>
             <div className="work__text">
               <dl>
@@ -67,7 +67,7 @@ export function Works() {
               <Media project={p} />
               <p className="work__links">
                 {p.demo && <a className="btn btn--light" href={p.demo}>Открыть демо</a>}
-                {p.code && <a className="btn" href={p.code}>Код на GitHub</a>}
+                {p.bot && <a className="btn btn--light" href={p.bot}>Открыть в Telegram</a>}
               </p>
             </div>
           </li>
