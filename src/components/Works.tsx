@@ -59,7 +59,7 @@ export function Works() {
               <Media project={p} />
               <p className="work__links">
                 {p.demo && <a className="btn btn--light" href={p.demo}>Открыть демо</a>}
-                {p.bot && <a className="btn btn--light" href={p.bot}>Открыть в Telegram</a>}
+                {p.bot && <a className={p.demo ? 'btn' : 'btn btn--light'} href={p.bot}>Открыть в Telegram</a>}
               </p>
             </div>
           </li>

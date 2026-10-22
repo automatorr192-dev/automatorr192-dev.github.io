@@ -59,6 +59,7 @@ export const projects: Project[] = [
     note: 'Оплата пока имитируется, Telegram Stars — следующий этап.',
     stack: 'Python · aiogram 3 · FastAPI · Telegram Mini Apps · Docker',
     demo: 'https://automatorr192-dev.github.io/nebula-shop/',
+    bot: 'https://t.me/autodigitalstorrebot',
     media: { src: 'works/nebula', widths: [480, 800, 1200], w: 1200, h: 750, alt: 'Мини-апп Nebula: главная со стопкой карт и экран товара' },
   },
   {
@@ -70,6 +71,7 @@ export const projects: Project[] = [
     note: 'Демо на странице работает без сервера: записи хранятся в браузере. Сервер записи с боксами на Postgres и боты готовы, живая версия — после деплоя.',
     stack: 'Vite · React 19 · TypeScript · FastAPI · Postgres · aiogram · MAX Bot API · OpenRouter',
     demo: 'https://automatorr192-dev.github.io/glyanets/',
+    bot: 'https://t.me/glyanets192bot',
     media: { src: 'works/glyanets', widths: [480, 800, 1200], w: 1200, h: 750, alt: 'Мини-апп Глянца: главная с машиной в работе и выбор времени записи' },
   },
   {

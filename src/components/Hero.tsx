@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { INSTAGRAM, TELEGRAM, TELEGRAM_LABEL } from '../data/projects'
-import { Logo } from './Logo'
 import { playEntrance } from './entrance'
 import './hero.css'
 
@@ -26,28 +25,16 @@ export function Hero() {
         {Array.from({ length: 48 }, (_, i) => <i key={i} />)}
       </div>
 
-      <a href="#top" className="logo" aria-label="Гриша — наверх"><Logo /></a>
-
-      <p className="tagline small">
-        <span>Гриша, AI-инженер.</span>
-        <span>Сайты, боты и ИИ-автоматизации</span>
-        <span>для малого бизнеса.</span>
-      </p>
-
       <address className="contact small">
         <a href={TELEGRAM}>{TELEGRAM_LABEL}</a>
         <a href={INSTAGRAM}>Instagram @automatorrr</a>
       </address>
 
       <nav className="nav small" aria-label="Разделы">
-        {links.map(([href, label]) => <a key={href} href={href}>{label}</a>)}
+        {links.map(([href, label], i) => (
+          <a key={href} href={href} className={`s${i + 1}`}><span className="rv">{label}</span></a>
+        ))}
       </nav>
-
-      <ul className="services small" aria-label="Услуги">
-        <li className="s1"><span className="rv">ИИ-автоматизация</span></li>
-        <li className="s2"><span className="rv">Боты и мини-аппы</span></li>
-        <li className="s3"><span className="rv">Сайты и лендинги</span></li>
-      </ul>
       <div className="rule" aria-hidden="true" />
 
       <h1 className="hl" aria-label="Сайты, приложения, ИИ-агенты">
