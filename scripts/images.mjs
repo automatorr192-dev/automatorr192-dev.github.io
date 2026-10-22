@@ -11,6 +11,6 @@ for (const [src, id, widths] of jobs) {
   }
 }
 
-await sharp('design/refs/atelier-unit-frame.png').webp({ quality: 72 }).toFile('public/hero-poster.webp')
+await sharp('design/refs/hero-statue.png').linear(1.06, -27).webp({ quality: 80 }).toFile('public/hero.webp')
 
 await sharp('design/shots/og.png').jpeg({ quality: 82, mozjpeg: true }).toFile('public/og.jpg')

@@ -12,23 +12,20 @@
 }
 
 .hero__photo {
-  --pw: max(min(100vw, 1536 * var(--u)), var(--vh) * 160);
-  --fade: clamp(0px, 100vw - var(--pw), var(--pw) * .08);
   position: absolute;
   z-index: -3;
   top: var(--photo-top, 0px);
-  left: calc((100vw - var(--pw)) * .5293);
-  width: var(--pw);
-  aspect-ratio: 16 / 10;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
+  left: 50%;
+  translate: -50% 0;
+  height: var(--ph, calc(var(--vh) * 84));
+  aspect-ratio: 736 / 957;
+  -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent);
+  mask-image: radial-gradient(closest-side, #000 30%, transparent);
 }
-.hero__photo video {
+.hero__photo img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center center;
 }
 
 .grid {
@@ -222,10 +219,8 @@
   .logo { left: var(--m); }
   .nav { right: var(--m); }
   .hero__photo {
-    --pw: calc(var(--vh) * 138.6);
-    --photo-top: calc(var(--vh) * 15);
-    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 11%);
-    mask-image: linear-gradient(180deg, transparent 0, #000 11%);
+    --ph: calc(var(--vh) * 66);
+    --photo-top: calc(var(--vh) * 32);
   }
   .services { top: calc(var(--vh) * 44); }
   .services .s1 { left: var(--m); }

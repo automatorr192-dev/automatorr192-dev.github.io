@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { INSTAGRAM, TELEGRAM, TELEGRAM_LABEL } from '../data/projects'
 import { Logo } from './Logo'
 import { playEntrance } from './entrance'
@@ -13,20 +13,14 @@ const links = [
 ]
 
 export function Hero() {
-  const video = useRef<HTMLVideoElement>(null)
-
   useEffect(() => {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      video.current!.removeAttribute('autoplay')
-      video.current!.pause()
-    }
     playEntrance()
   }, [])
 
   return (
     <header className="hero">
       <div className="hero__photo" role="presentation">
-        <video ref={video} src="./hero.mp4" poster="./hero-poster.webp" autoPlay muted loop playsInline preload="auto" />
+        <img src="./hero.webp" width="736" height="957" alt="" fetchPriority="high" />
       </div>
       <div className="grid" aria-hidden="true">
         {Array.from({ length: 48 }, (_, i) => <i key={i} />)}
