@@ -46,7 +46,7 @@ export const projects: Project[] = [
     kind: 'Карта автоматизаций для бизнеса',
     task: 'Владелец тонет в рутине и не знает, что автоматизировать первым. Типовые советы не учитывают его нишу и размер команды.',
     solution: 'Семь вопросов в Telegram или MAX, и модель собирает персональную карту автоматизаций. Лид с ответами сразу уходит менеджеру, есть выгрузка в Excel и CRM.',
-    stack: 'Python · aiogram 3 · MAX Bot API · OpenRouter · SQLite · Docker',
+    stack: 'TypeScript · Cloudflare Workers · D1 · Workflows · Python · MAX Bot API · OpenRouter',
     bot: 'https://t.me/automationquizbot',
     media: { src: 'works/quiz-bot', widths: [480, 800, 1200], w: 1200, h: 750, alt: 'Диалог с квиз-ботом: вопросы с кнопками и начало карты автоматизаций' },
   },
