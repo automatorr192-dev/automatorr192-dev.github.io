@@ -30,7 +30,7 @@ export function Hero() {
         <a href={INSTAGRAM}>Instagram @automatorrr</a>
       </address>
 
-      <nav className="nav small" aria-label="Разделы">
+      <nav className="nav" aria-label="Разделы">
         {links.map(([href, label], i) => (
           <a key={href} href={href} className={`s${i + 1}`}><span className="rv">{label}</span></a>
         ))}

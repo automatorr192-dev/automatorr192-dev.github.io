@@ -26,9 +26,6 @@ export function Works() {
       <div className="section__head" data-reveal>
         <h2 id="works-title" className="section__title">Работы</h2>
         <p className="section__count">{projects.length} проектов</p>
-        <p className="section__intro">
-          Каждый проект можно открыть: сайты и мини-аппы по ссылке, боты в Telegram.
-        </p>
       </div>
 
       <ol className="works">

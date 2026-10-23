@@ -1,4 +1,5 @@
 .hero {
+  --rule-top: calc(239 * var(--u));
   --hl-w: 7.366;
   --hl-step: .776em;
   position: relative;
@@ -65,8 +66,9 @@
   position: absolute;
   left: 0;
   width: 100%;
-  top: calc(211.75 * var(--u));
-  font-size: max(var(--small-min) * 1.06, 13.3 * var(--u));
+  top: calc(var(--rule-top) - 1.35em);
+  font-size: min(3 * var(--small), (100vw - 32px) / 14.6);
+  font-weight: 500;
   line-height: 1;
 }
 .nav a {
@@ -88,7 +90,7 @@
   position: absolute;
   left: 0;
   width: 100%;
-  top: calc(239 * var(--u));
+  top: var(--rule-top);
   height: 1px;
   background: var(--rule);
   z-index: -1;
@@ -171,11 +173,9 @@
     --ph: calc(var(--vh) * 66);
     --photo-top: calc(var(--vh) * 32);
   }
-  .nav { top: calc(var(--vh) * 44); }
-  .nav .s1 { left: var(--m); }
-  .nav .s2 { left: 50%; }
-  .nav .s3 { right: var(--m); }
-  .rule { top: calc(var(--vh) * 44 + 2.1em); font-size: var(--small); }
+  .nav { display: flex; justify-content: space-between; padding-inline: var(--m); }
+  .nav .s1, .nav .s2, .nav .s3 { position: relative; left: auto; right: auto; transform: none; }
+  .hero { --rule-top: calc(var(--vh) * 44 + 2.1 * var(--small)); }
   .hl {
     font-size: calc((100vw - 2 * var(--m)) / var(--hl-w));
     bottom: max(.4334em, 18px + env(safe-area-inset-bottom));
