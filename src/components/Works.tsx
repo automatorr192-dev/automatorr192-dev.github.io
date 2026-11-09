@@ -35,7 +35,7 @@ export function Works() {
               <span className="work__num">{i + 1}</span>
               <h3 className="work__name">{p.name}</h3>
               <p className="work__kind">{p.kind}</p>
-              <p className={`work__status${p.demo || p.bot ? ' is-live' : ''}`}>{p.demo || p.bot ? 'Живое демо' : 'Демо скоро'}</p>
+              <p className={`work__status${!p.status && (p.demo || p.bot) ? ' is-live' : ''}`}>{p.status || (p.demo || p.bot ? 'Живое демо' : 'Демо скоро')}</p>
             </div>
             <div className="work__text">
               <dl>
@@ -57,6 +57,7 @@ export function Works() {
               <p className="work__links">
                 {p.demo && <a className="btn btn--light" href={p.demo}>Открыть демо</a>}
                 {p.bot && <a className={p.demo ? 'btn' : 'btn btn--light'} href={p.bot}>Открыть в Telegram</a>}
+                {p.repo && <a className="btn" href={p.repo}>Код на GitHub</a>}
               </p>
             </div>
           </li>
